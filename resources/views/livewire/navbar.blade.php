@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-white">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                <strong>Nara</strong>-Etnic
+                {{ $store_detail->nama_toko }}
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -21,16 +21,16 @@
                             List Produk
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            @foreach($kategoris as $kategori)
+                            @foreach($categories as $category)
                             <a class="dropdown-item"
-                                href="{{ route('products.kategori', $kategori->id) }}">{{ $kategori->nama }}</a>
+                                href="{{ route('products.kategori', $category->id) }}">{{ $category->category_name }}</a>
                             @endforeach
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('products') }}">Semua Kategori</a>
                         </div>
                     </li>
                     @if(Auth::user())
-                    
+
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('history') }}">History</a>
                          </li>

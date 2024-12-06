@@ -45,8 +45,10 @@ class Navbar extends Component
     public function render()
     {
         $categories = Http::get("http://127.0.0.1:8000/api/v1/product-categories");
+        $storeName = Http::get("http://127.0.0.1:8000/api/v1/my-store");
         return view('livewire.navbar',[
-            'kategoris' => json_decode($categories),
+            'store_detail' => json_decode($storeName),
+            'categories' => json_decode($categories),
             'jumlah_pesanan' => $this->jumlah,
         ]);
     }
